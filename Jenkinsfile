@@ -1,5 +1,3 @@
-// a jenkins master is configured with multiple agents for distributed builds. suddenly, build start failing on specific nodes while others work fine, analyze potential reasons such as environment mismatch, docker daemon configuration differences and network segmentation. explain how jenkins node management architecture handles such failures and propose a stabilization
-
 pipeline {
     agent none
 
@@ -12,25 +10,25 @@ pipeline {
                     def successfulNodes = ['node3', 'node4']
 
                     failedNodes.each { node ->
-                        echo "Checking environment on ${node}"
+                        echo "checking environment on ${node}"
                     }
                     failedNodes.each { node ->
-                        echo "Checking Docker daemon configuration on ${node}"
+                        echo "checking Docker daemon configuration on ${node}"
               
                     }
 
 
                     failedNodes.each { node ->
-                        echo "Checking network connectivity for ${node}"
+                        echo "checking network connectivity for ${node}"
                     }
                 }
             }
         }
 
-        stage('Stabilization Proposal') {
+        stage('Stabilization Strategy') {
             steps {
                 script {
-                    echo "Proposing stabilization measures"
+                    echo "proposing stabilization measures"
 
                 }
             }
@@ -39,7 +37,7 @@ pipeline {
 
     post {
         always {
-            echo "Node analysis and stabilization proposal completed."
+            echo "node analysis and stabilization proposal completed."
         }
     }
 }
